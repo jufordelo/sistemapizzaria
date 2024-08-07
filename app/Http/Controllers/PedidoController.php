@@ -1,26 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Encomenda;
+use App\Models\Pedido;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
-use App\Charts\GraficoEncomenda;
+use App\Charts\GraficoPedido;
 use PDF;
 
-class EncomendaController extends Controller
+class PedidoController extends Controller
 
 {
     public function index()
     {
-         $dados=Encomenda::all();
+         $dados= Pedido::all();
 
-        return view("encomenda.list", ["dados"=> $dados]);
+        return view("pedido.list", ["dados"=> $dados]);
     }
 
     public function create()
     {
         $categorias= Categoria::all();
-        return view("encomenda.form",['categorias'=>$categorias]);
+        return view("pedido.form",['categorias'=>$categorias]);
     }
 
     public function store(Request $request)
@@ -30,7 +30,10 @@ class EncomendaController extends Controller
         $request->validate([
             'nome'=>"required|max:100",
              'qtn'=> "required|max:16",
-             'contato'=>"nullable"
+             'contato'=>"nullable",
+             'horareti'=> "nullable",
+             'tamanho'=> "nullable",
+
         ],[
             'nome.required'=> "O :attribute é obrigatório",
             'nome.max'=> "São permitidos 100 caracteres",
@@ -40,14 +43,16 @@ class EncomendaController extends Controller
         ]);
 
 
-        Encomenda::create(
+        Pedido::create(
             [ 'nome'=> $request->nome,
             'contato'=> $request->contato,
             'qtn'=> $request->qtn,
+            'horareti'=> $request -> horareti,
+            'tamanho' => $request -> tamanho,
             'categoria_id'=>$request->categoria_id,
             ] );
 
-            return redirect('encomenda');
+            return redirect('pedido');
 
     }
 
@@ -64,10 +69,10 @@ class EncomendaController extends Controller
      */
     public function edit(string $id)
     {
-     $dado= Encomenda::findOrFail($id);
+     $dado= Pedido::findOrFail($id);
      $categorias= Categoria::all();
 
-     return view ("encomenda.form",
+     return view ("pedido.form",
      ['dado'=>$dado,
     'categorias'=>$categorias]);
     }
@@ -81,6 +86,8 @@ class EncomendaController extends Controller
         $request->validate([
             'nome'=>"required|max:100",
              'qtn'=> "required|max:16",
+             'horareti' => "nullable",
+             'tamanho' => "nullable",
              'contato'=>"nullable"
         ],[
             'nome.required'=> "O :attribute é obrigatório",
@@ -91,15 +98,17 @@ class EncomendaController extends Controller
         ]);
 
 
-        Encomenda::updateOrCreate(
+        Pedido::updateOrCreate(
             [ 'id'=> $request->id],
 
             [ 'nome'=> $request->nome,
             'contato'=> $request->contato,
             'qtn'=> $request->qtn,
+            'horareti' => $request -> horareti,
+            'tamanho' => $request -> tamanho,
             'categoria_id'=>$request->categoria_id,
         ]);
-            return redirect('encomenda');
+            return redirect('pedido');
     }
 
     /**
@@ -107,41 +116,41 @@ class EncomendaController extends Controller
      */
     public function destroy($id)
     {
-        $dado = Encomenda::findOrFail($id);
+        $dado = pedido::findOrFail($id);
        // dd($dado);
         $dado->delete();
 
-        return redirect('encomenda');
+        return redirect('pedido');
     }
     public function search(Request $request)
     {
         if(! empty ($request->nome)){
-            $dados = Encomenda::where(
+            $dados = pedido::where(
                 "nome",
                 "like",
                 "%". $request->nome . "%" )->get();
         } else{
-            $dados=Encomenda::all();
+            $dados=pedido::all();
         } //dd($dados)
-             return view("encomenda.list",["dados"=> $dados]);
+             return view("pedido.list",["dados"=> $dados]);
 
     }
-    public function chart(GraficoEncomenda $encomendaChart)
+    public function chart(GraficoPedido $pedidoChart)
     {
-        return view("encomenda.chart", ["encomendaChart" => $encomendaChart -> build()]);
+        return view("pedido.chart", ["pedidoChart" => $pedidoChart -> build()]);
     }
     public function report()
     {
-        $encomendas = Encomenda::All();
+        $pedidos = pedido::All();
 
         $data = [
-            'titulo' => 'Relatório de Encomendas',
-            'encomenda'=> $encomendas,
+            'titulo' => 'Relatório de Pedidos',
+            'pedido'=> $pedidos,
         ];
 
-        $pdf = PDF::loadView('encomenda.report', $data);
+        $pdf = PDF::loadView('pedido.report', $data);
 
-        return $pdf->download('relatorio_encomendas.pdf');
+        return $pdf->download('relatorio_pedidos.pdf');
     }
 
 

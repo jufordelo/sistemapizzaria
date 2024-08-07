@@ -1,7 +1,7 @@
 @extends('base')
 @section('conteudo')
 <body style="background-color:rgb(222, 198, 245);">
-    <h3>BREKIEE COFFEE <i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h3> <br>
+    <h3>BREKIEE COFFEE<i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h3> <br>
     <h3>Faça sua Reserva abaixo:</h3>
     @php
         if (!empty($dado->id)) {

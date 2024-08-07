@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> RELATÓRIO DE ENCOMENDAS </title>
+    <title> RELATÓRIO DE PEDIDOS  </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -23,7 +23,9 @@
                 <th scope="col"> Nome </th>
                 <th scope="col"> Contato </th>
                 <th scope="col"> Quantidade </th>
-                <th scope="col"> Categoria </th>
+                <th scope="col"> Hora Retirada </th>
+                <th scope="col"> Tamanho </th>
+                <th scope="col"> Sabor </th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,8 @@
                     <td>{{ $encomenda->nome }}</td>
                     <td>{{ $encomenda->contato}}</td>
                     <td>{{ $encomenda->qtn}}</td>
+                    <td>{{ $encomenda->horareti}}</td>
+                    <td>{{ $encomenda->tamanho}}</td>
                     <td>{{ $encomenda->categoria->nome ?? '' }}</td>
                 </tr>
             @empty

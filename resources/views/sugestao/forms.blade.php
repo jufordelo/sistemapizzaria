@@ -1,9 +1,10 @@
 @extends('base')
 @section('conteudo')
 
-    <body style="background-color:rgb(172, 232, 255);">
-        <h3>BREKIEE COFFEE <i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h3> <br>
-        <h3>Faça sua Sugestão abaixo:</h3>
+<body style="background-color:rgb(154, 214, 127);">
+    <h3>PIZZARIA ITÁLIA EXPRESS <i class="fa-solid fa-pizza-slice"></i>
+
+    </h3>Faça sua Sugestão abaixo:</h3>
         @php
 
            // dd($dado);
@@ -46,9 +47,9 @@
             <br>
 
 
-            <button type="submit" class="btn btn-dark"><i class="fa-solid fa-square-check" style="color: #B197FC;"></i>
+            <button type="submit" class="btn btn-dark"><i class="fa-solid fa-square-check" style="color: #c40000;"></i>
                 Enviar</button>
-            <button class="btn btn-dark"> <i class="fa-solid fa-rotate-left" style="color: #B197FC;"></i><a
+            <button class="btn btn-dark"> <i class="fa-solid fa-rotate-left" style="color: #c40000;"></i><a
                     href="{{ url('sugestao') }} "></a>Voltar</a></button>
 
 

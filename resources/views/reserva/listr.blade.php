@@ -5,7 +5,7 @@
 <body style="background-color:rgb(222, 198, 245);">
 
     <h3> Listagem de Reservas </h3>
-    <h5>BREKIEE COFFEE <i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h5> <br>
+    <h5>PIZZARIA ITÁLIA EXPRESS<i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h5> <br>
     <header>
         <!-- Aqui vai o cabeçalho com logo, navegação principal, etc. -->
         <nav>

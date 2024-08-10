@@ -2,21 +2,24 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\EncomendaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\SugestaoController;
-
+use App\Http\Controllers\PersonalizadoController;
+use App\Http\Controllers\EstoqueController;
 Route::get('/', function () {
 });
 
 //pesquisa/buscar
 
 
-//P
-Route::post('/pedido/search', [PedidoController::class,"search"])->name('pedido.search');
-Route::get('/pedido/chart',[PedidoController::class, "chart"])-> name ("pedido.chart");
-Route::get('/pedido/report/',[ PedidoController::class, "report"])->name('pedido.report');
-Route::resource('pedido', PedidoController::class);
+
+//ENCOMENDA
+Route::post('/encomenda/search', [EncomendaController::class,"search"])->name('encomenda.search');
+Route::get('/encomenda/chart',[EncomendaController::class, "chart"])-> name ("encomenda.chart");
+Route::get('/encomenda/report/',[EncomendaController::class, "report"])->name('encomenda.report');
+Route::resource('encomenda', EncomendaController::class);
+
 
 //RESERVA
 
@@ -31,3 +34,13 @@ Route::post('/categoria_reserva/search', [CategoriaReservaController::class,"sea
 //SUGESTAO
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class,"search"])->name('sugestao.search');
+
+//PERSONALIZADO
+
+Route::post('/personalizado/search', [PersonalizadoController::class,"search"])->name('personalizado.search');
+Route::resource('personalizado', PersonalizadoController::class);
+
+//ESTOQUE
+Route::post('/estoque/search', [EstoqueController::class,"search"])->name('estoque.search');
+Route::get('/estoque/report/',[EstoqueController::class, "report"])->name('estoque.report');
+Route::resource('estoque', EstoqueController::class);

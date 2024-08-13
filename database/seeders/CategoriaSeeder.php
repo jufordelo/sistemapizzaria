@@ -13,10 +13,16 @@ class CategoriaSeeder extends Seeder
      */
     public function run(): void
     {
-        Categoria::factory()->count(4)->sequence(
-            ['nome'=> 'Bolo morango kg'],
-            ['nome'=> 'Bolo chocolate kg'],
-            ['nome'=> 'Mix salgados festa'],
-            ['nome'=> 'Mix doces festa'],)->create();
+        Categoria::factory()->count(9)->sequence(
+            ['nome'=> 'Pizza Marguerita'],
+            ['nome'=> 'Pizza Portuguesa'],
+            ['nome'=> 'Pizza Calabresa'],
+            ['nome'=> 'Pizza Quatro Queijos'],
+            ['nome'=> 'Pizza Salmão'],
+            ['nome'=> 'Pizza California'],
+            ['nome'=> 'Pizza Brocolis com Rucula'],
+            ['nome'=> 'Pizza Milho com Bacon '],
+            ['nome'=> 'Pizza Frango com Catupiry'],
+            ['nome'=> 'Pizza Coração'],)->create();
     }
 }

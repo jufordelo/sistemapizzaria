@@ -1,10 +1,10 @@
 @extends('base')
 @section('conteudo')
 @section('titulo' , "Formulario Pedido")
-<body style="background-color:rgb(128, 255, 159);">
+<body style="background-color:rgb(183, 255, 201);">
 
 <h2> Listagem de Pedidos </h2>
-<h4> Pizzaria Itália Express  🍕</h4> <br>
+<h4> Pizzaria Itália Express 🍕</h4> <br>
 <header>
     <!-- Aqui vai o cabeçalho com logo, navegação principal, etc. -->
     <nav>
@@ -17,7 +17,7 @@
                         <a href="{{url('reserva/create')}}"class="btn btn-dark" style="display: inline-block; margin-right: 5px;"> Reservas </a>
                         <a href="{{url('sugestao/create')}}" class="btn btn-dark" style="display: inline-block;"> FeedBacks</a>
                     </div>
-                   
+
             </div>
         </div>
         </ul>
@@ -51,8 +51,8 @@
             <tr>    <th> ID</th>
                     <th> Nome</th>
                     <th> Contato </th>
-                    <th>Tamanho </th>
-                    <th>Sabor </th>
+                    <th> Tamanho </th>
+                    <th> Sabor </th>
                     <th> Retirada </th>
                     <th colspan="2">EDITAR</th>
                     <th colspan="2">EXCLUIR</th>

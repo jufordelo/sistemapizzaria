@@ -45,8 +45,9 @@ class EncomendaController extends Controller
             [ 'nome'=> $request->nome,
             'contato'=> $request->contato,
             'qtn'=> $request->qtn,
-            'categoria_id'=>$request->categoria_id,
-            'retirada'=> $request -> retirada
+            'retirada'=> $request -> retirada ,
+            'categoria_id'=>$request->categoria_id ,
+
             ] );
 
             return redirect('encomenda');
@@ -139,13 +140,13 @@ class EncomendaController extends Controller
         $encomendas = Encomenda::All();
 
         $data = [
-            'titulo' => 'Relatório de Encomendas',
+            'titulo' => 'Relatório de Pedidos',
             'encomenda'=> $encomendas,
         ];
 
         $pdf = PDF::loadView('encomenda.report', $data);
 
-        return $pdf->download('relatorio_encomendas.pdf');
+        return $pdf->download('relatorio_pedidos.pdf');
     }
 
 

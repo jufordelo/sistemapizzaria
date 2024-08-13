@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
                 CategoriaSeeder::class,
                 CategoriaReservaSeeder::class,
                 CategoriaSugestaoSeeder::class,
-                CategoriaPersonalizadoSeeder::class,
+              
             ]
         );
         // \App\Models\User::factory()->create([

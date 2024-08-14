@@ -3,12 +3,11 @@
 
     <body style="background-color:rgba(255, 172, 199, 0.863);"> </body>
 
-    <h3> ITÁLIA EXPRESS 🍕</h3> <br>
     <h4>Faça seu Pedido Abaixo:</h4>
     <em> Agora temos a opção de reserva em nosso local, clique e aproveite!</em>
     <br>
     <br>
-    <a href="{{ url('reserva/create') }}"class="btn btn-dark">Quero Reservar </a>
+    <a href="{{ url('reserva/create') }}" class="btn btn-outline-dark">Quero Reservar </a>
 
     @php
         if (!empty($dado->id)) {
@@ -38,7 +37,7 @@
             value="@if (!empty($dado->contato)) {{ $dado->contato }}
      @elseif (!empty(old('contato'))) {{ old('contato') }} else{{ '' }} @endif">
 
-        <label for=""> Tamanho desejado: P, M, G, FAMILIA </label>
+        <label for=""> Escolha o tamanho: P, M, G, F</label>
         <input type="text" name="qtn" class="form-control"
             value="@if (!empty($dado->qtn)) {{ $dado->qtn }}
      @elseif (!empty(old('qtn'))) {{ old('qtn') }} else{{ '' }} @endif">
@@ -55,10 +54,10 @@
         <input type="text" name="retirada" class="form-control"
             value="@if (!empty($dado->retirada)) {{ $dado->retirada }}
      @elseif (!empty(old('retirada'))) {{ old('retirada') }} else{{ '' }} @endif">
-        <br>
-
-        <em> Nossas pizzas normalmente estão prontas para a retirada após 40min do recebimento do seu pedido!</em>
-        <br>
+<br>
+<div class="alert alert-warning" role="alert">
+    Nossas pizzas normalmente estão prontas para a retirada após 40min do recebimento do seu pedido!
+  </div>
         <br>
         <button type="submit" class="btn btn-dark"><i class="fa-solid fa-square-check" style="color: #17fc02;"></i>
             Concluir Pedido</button>

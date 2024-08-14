@@ -1,39 +1,35 @@
 
-
-
-
-
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">ITALIA EXPRESS</a>
+      <a class="navbar-brand" href="#"> PIZZARIA ITÁLIA EXPRESS 🍕</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Pedidos</a>
+            <a class="nav-link active" aria-current="page" href="{{url('encomenda/create')}}">Pedidos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reservas</a>
+            <a class="nav-link" href="{{url('sugestao/create')}}">FeedBacks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('reserva/create')}}"> Reservas</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Listagem
+              Área ADM
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Reserva</a></li>
-              <li><a class="dropdown-item" href="#"> FeedBacks</a></li>
+              <li><a class="dropdown-item" href="{{url('')}}">Listagem Reserva </a></li>
+              <li><a class="dropdown-item" href="{{url('')}}"> Listagem Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Pedidos</a></li>
+              <li><a class="dropdown-item" href="{{url('')}}"> Listagem FeedBacks</a></li>
             </ul>
           </li>
-      
+
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
       </div>
     </div>
   </nav>

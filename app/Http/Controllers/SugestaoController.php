@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class SugestaoController extends Controller
 {
+    private $pagination = 2;
+
     public function index()
     {
-        $dados = Sugestao::all();
+
+        $dados = Sugestao::paginate($this->pagination);
 
         return view("sugestao.lists", ["dados" => $dados]);
     }
@@ -29,18 +32,30 @@ class SugestaoController extends Controller
             'assunto' => "required|max:100",
             'tipo' => "nullable",
             'comentario' => "nullable",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
         ], [
             'assunto.required' => "O :attribute é obrigatório",
             'assunto.max' => "São permitidos 100 caracteres",
             'comentario.required' => "O :attribute é obrigatório",
             'comentario.max' => "São permitidos 3 caracteres",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
             //  'categoria_sugestao_id.required'=> "O: attribute é obrigatório",
         ]);
+        $data = $request->all();
+        $imagem = $request->file('imagem');
 
-        //dd($request->all());
-        Sugestao::create(
-            $request->all()
-        );
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/sugestao/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
+
+        Sugestao::create($data);
 
         return redirect('sugestao');
     }
@@ -78,25 +93,34 @@ class SugestaoController extends Controller
             'assunto' => "required|max:100",
             'tipo' => "nullable",
             'comentario' => "required|max:16",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
         ], [
             'assunto.required' => "O :attribute é obrigatório",
             'assunto.max' => "São permitidos 100 caracteres",
             'comentario.required' => "O :attribute é obrigatório",
             'comentario.max' => "São permitidos 100 caracteres",
             'categoria_sugestao_id.required' => "O: attribute é obrigatório",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
         ]);
+        $data = $request->all();
+        $imagem = $request->file('imagem');
 
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/sugestao/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
 
         Sugestao::updateOrCreate(
             ['id' => $request->id],
-
-            [
-                'assunto' => $request->assunto,
-                'tipo' => $request->tipo,
-                'comentario' => $request->comentario,
-                'categoria_sugestao_id' => $request->categoria_sugestao_id,
-            ]
+            $data
         );
+
         return redirect('sugestao');
     }
 
@@ -125,3 +149,4 @@ class SugestaoController extends Controller
         return view("sugestao.lists", ["dados" => $dados]);
     }
 }
+

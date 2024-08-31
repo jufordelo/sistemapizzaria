@@ -20,10 +20,10 @@ class GraficoEncomenda
 
         return $this->chart->lineChart()
             ->setTitle('Encomendas')
-            ->setSubtitle('Vendas Online x Total de Encomendas')
-            ->addData('Vendas online', [40, 93, 35])
-            ->addData('Total de vendas', [70, 29, 77])
-            ->setXAxis(['Bolo', 'Doces', 'Salgados'])
+            ->setSubtitle('Pedidos no site x Pedidos presencial ')
+            ->addData('Pedidos online', [40, 93, 35])
+            ->addData('Pedidos Presencial', [70, 29, 77])
+            ->setXAxis(['Pizza Salgada ', 'Pizza Doce ', ''])
             ->setFontFamily('DM Sans')
             ->setFontColor('#1C1C1C	');
     }

@@ -14,7 +14,7 @@
                 $route = route('sugestao.store');
             }
         @endphp
-        <form action="{{ $route }}" method="post">
+        <form action="{{ $route }}" method="post" enctype="multipart/form-data">
 
             @csrf
 
@@ -46,6 +46,14 @@
 
             <br>
 
+            @php
+                $nome_imagem = !empty($dado->imagem) ? $dado->imagem : 'sem_imagem.jpg';
+                //dd($nome_imagem);
+            @endphp
+                <label for="">Imagem</label><br>
+                    <img src="/storage/{{ $nome_imagem }}" width="300px" alt="imagem" />
+                <input type="file" name="imagem" class="form-control"
+                    value="@if (!empty($dado->imagem)) {{ $dado->imagem }}@elseif (!empty(old('imagem'))){{ old('imagem') }}@else{{ '' }} @endif"><br>
 
             <button type="submit" class="btn btn-dark"><i class="fa-solid fa-square-check" style="color: #c40000;"></i>
                 Enviar</button>

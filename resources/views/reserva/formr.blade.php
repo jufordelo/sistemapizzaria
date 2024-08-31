@@ -1,14 +1,12 @@
 @extends('base')
 @section('conteudo')
-<<<<<<< HEAD
-<body style="background-color:rgb(222, 198, 245);">
-    <h3>BREKIEE COFFEE<i class="fa-solid fa-mug-hot" style="color: #f56bd0;"></i></h3> <br>
-=======
+
+
 <body style="background-color:rgb(154, 214, 127);">
     <h3>PIZZARIA ITÁLIA EXPRESS <i class="fa-solid fa-pizza-slice"></i>
 
     </h3> <br>
->>>>>>> 92d5d0ff659ad9bba13a77d5ace2a0aef68e14a3
+    
     <h3>Faça sua Reserva abaixo:</h3>
     @php
         if (!empty($dado->id)) {

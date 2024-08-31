@@ -64,8 +64,5 @@
 
         <a class="btn btn-dark" href="{{ url('encomenda') }} "><i class="fa-solid fa-rotate-left"
             style="color: #ff3d3d;"></i> Voltar</a>
-
-        <a href="{{ url('menu/create') }}"class="btn btn-dark"> Vizualizar Menu</a>
-
     </form>
 @stop

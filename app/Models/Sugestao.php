@@ -16,6 +16,7 @@ class Sugestao extends Model
         "tipo",
         "comentario",
         "categoria_sugestao_id",
+        "imagem",
     ];
 
 }

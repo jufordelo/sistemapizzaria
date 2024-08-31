@@ -7,8 +7,11 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\SugestaoController;
 
 
+
 Route::get('/', function () {
+    return view ('welcome');
 });
+
 
 //pesquisa/buscar
 
@@ -34,4 +37,10 @@ Route::post('/categoria_reserva/search', [CategoriaReservaController::class,"sea
 //SUGESTAO
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class,"search"])->name('sugestao.search');
+
+
+//INICIO
+Route::resource('inicio', InicioController::class);
+Route::post('/inicio/search', [InicioController::class,"search"])->name('inicio.search');
+
 

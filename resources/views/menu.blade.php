@@ -16,15 +16,18 @@
           <li class="nav-item">
             <a class="nav-link" href="{{url('reserva/create')}}"> Reservas</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('')}}"> Inicio</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Área ADM
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{url('')}}">Listagem Reserva </a></li>
-              <li><a class="dropdown-item" href="{{url('')}}"> Listagem Pedidos</a></li>
+              <li><a class="dropdown-item" href="{{url('reserva')}}">Listagem Reserva </a></li>
+              <li><a class="dropdown-item" href="{{url('encomenda')}}"> Listagem Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{url('')}}"> Listagem FeedBacks</a></li>
+              <li><a class="dropdown-item" href="{{url('sugestao')}}"> Listagem FeedBacks</a></li>
             </ul>
           </li>
 

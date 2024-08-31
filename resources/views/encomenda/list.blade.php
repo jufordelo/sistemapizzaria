@@ -1,28 +1,9 @@
 @extends('base')
 @section('conteudo')
 @section('titulo' , "Formulario Pedido")
-<body style="background-color:rgb(183, 255, 201);">
+<body style="background-color:rgba(255, 172, 199, 0.863);">
 
 <h2> Listagem de Pedidos </h2>
-<h4> Pizzaria Itália Express 🍕</h4> <br>
-<header>
-    <!-- Aqui vai o cabeçalho com logo, navegação principal, etc. -->
-    <nav>
-        <ul>
-            <div class="col-4" style="">
-                <div style="white-space: nowrap;">
-                    <h6>Menu de Páginas </h6>
-
-                        <a href="{{url('encomenda/create')}}"class="btn btn-dark" style="display: inline-block; margin-right: 5px;"> Pedidos</a>
-                        <a href="{{url('reserva/create')}}"class="btn btn-dark" style="display: inline-block; margin-right: 5px;"> Reservas </a>
-                        <a href="{{url('sugestao/create')}}" class="btn btn-dark" style="display: inline-block;"> FeedBacks</a>
-                    </div>
-
-            </div>
-        </div>
-        </ul>
-    </nav>
-</header>
 
 <form action="{{route('encomenda.search')}}" method="post">
     <div class="row">
@@ -34,7 +15,7 @@
 
         <div class="col-4" style="">
             <div style="white-space: nowrap;">
-            <button type="submit"class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></class=>
+            <button type="submit"class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i>
                 </i>Buscar</button>
                     <a href="{{url('encomenda/create')}}" class="btn btn-dark" style="display: inline-block; margin-right: 10px;"><i class="fa-solid fa-cart-shopping" style="color: #76f0e6;"></i> Novo Pedido</a>
                     <a href="{{ url('encomenda/report') }}" class="btn btn-dark"style="display: inline-block; margin-right: 10px;"><i class="fa-solid fa-file-pdf"style="color:#FF69B4 ;"></i> Relatório PDF</a>

@@ -70,7 +70,7 @@
         <a href="{{url('encomenda/create')}}">Encomenda</a>
         <a href="{{url('reserva/create')}}">Reserva</a>
         <a href="{{url('sugestao/create')}}">Sugestão</a>
-        <a href="{{url('')}}">extra</a>
+
     </nav>
 
     <div class="container">
